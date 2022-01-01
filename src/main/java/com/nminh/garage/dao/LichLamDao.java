@@ -5,5 +5,7 @@ import com.nminh.garage.model.LichLam;
 import java.util.List;
 
 public interface LichLamDao {
-    List<LichLam> getLichLam(int nhanVienId);
+    List<LichLam> getLichLams(int nhanVienId);
+
+    LichLam getLichLam();
 }

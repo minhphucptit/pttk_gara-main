@@ -20,7 +20,7 @@ public class LoginController {
     private ChucVuDao chucVuDao;
 
     @Autowired
-    private SessionService sessionService;
+  //  private SessionService sessionService;
 //
 //    @Autowired
 //    private PasswordEncoder passwordEncoder;

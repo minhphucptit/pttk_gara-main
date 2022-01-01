@@ -10,4 +10,5 @@ public interface HoaDonBanHangDao {
     List<HoaDonBanHang> getListHoaDonTheoKhachHang(int khachHangId);
     List<HoaDonBanHang> getListHoaDonTheoNhanVien(int nhanVienBhID);
     List<HoaDonBanHang> getListHoaDon();
+    HoaDonBanHang tongDoanhThu(int KhachHangId,int KhoangThoiGian);
 }

@@ -16,7 +16,7 @@ public class LichLam {
     int id;
     Instant ngay;
     String ghiChu;
-///////abc
+
     @ManyToOne
     @JoinColumn(name ="ca_lam_id")
     CaLam caLam;

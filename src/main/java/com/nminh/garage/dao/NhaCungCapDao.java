@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface NhaCungCapDao {
     List<NhaCungCapDao> getListNhaCungCap();
-    List<NhaCungCapDao> getListNhaCungCap(String name);
+    List<NhaCungCapDao> getListNhaCungCap(String name,String diaChi,String ma);
+    NhaCungCap getNhaCungCap(Object nhaCungCap);
     NhaCungCap themNhaCungCap(Object data);
-    NhaCungCap suaNhaCungCap(int nhaCungCapId,NhaCungCap ncc);
+    NhaCungCap suaNhaCungCap(int nhaCungCapId,NhaCungCap ncc,String diaChi);
 }
