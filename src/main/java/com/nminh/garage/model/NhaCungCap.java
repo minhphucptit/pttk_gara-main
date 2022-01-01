@@ -3,6 +3,7 @@ package com.nminh.garage.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
@@ -18,7 +19,26 @@ public class NhaCungCap {
     String diaChi;
     String ghiChu;
 
+    @OneToMany(mappedBy = "ncc", cascade = CascadeType.ALL)
+    private Set<PhuTung> phuTungs;
+
     public NhaCungCap() {
+    }
+
+
+    public NhaCungCap(String ma, String ten, String diaChi, String ghiChu) {
+        this.ma = ma;
+        this.ten = ten;
+        this.diaChi = diaChi;
+        this.ghiChu = ghiChu;
+    }
+
+    public NhaCungCap(int id, String ma, String ten, String diaChi, String ghiChu) {
+        this.id = id;
+        this.ma = ma;
+        this.ten = ten;
+        this.diaChi = diaChi;
+        this.ghiChu = ghiChu;
     }
 
     public int getId() {

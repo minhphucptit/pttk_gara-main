@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -38,6 +39,10 @@ public class NhanVien {
     @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonIgnore
     List<ThuLao> thuLaos;
+
+    @OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonIgnore
+    Set<HoaDonNhap> hoaDonNhaps;
 
     public NhanVien() {
     }
