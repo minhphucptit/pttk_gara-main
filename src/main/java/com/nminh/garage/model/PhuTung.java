@@ -3,6 +3,7 @@ package com.nminh.garage.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
@@ -16,9 +17,31 @@ public class PhuTung {
     String ma;
     String ten;
     String loai;
-    String gia;
+    Float gia;
+
+    @ManyToOne()
+    @JoinColumn(name = "tblNhaCungCapid")
+    private NhaCungCap ncc;
+
+    @OneToMany(mappedBy = "phuTung",cascade = CascadeType.ALL)
+    private Set<ChiTietHoaDon> chiTietHoaDonSet;
 
     public PhuTung() {
+    }
+
+    public PhuTung(String ma, String ten, String loai, Float gia) {
+        this.ma = ma;
+        this.ten = ten;
+        this.loai = loai;
+        this.gia = gia;
+    }
+
+    public PhuTung(int id, String ma, String ten, String loai, Float gia) {
+        this.id = id;
+        this.ma = ma;
+        this.ten = ten;
+        this.loai = loai;
+        this.gia = gia;
     }
 
     public int getId() {
@@ -53,11 +76,11 @@ public class PhuTung {
         this.loai = loai;
     }
 
-    public String getGia() {
+    public Float getGia() {
         return gia;
     }
 
-    public void setGia(String gia) {
+    public void setGia(Float gia) {
         this.gia = gia;
     }
 }

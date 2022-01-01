@@ -5,9 +5,9 @@ import com.nminh.garage.model.PhuTung;
 import java.util.List;
 
 public interface PhuTungDao {
-    PhuTung themPhuTung(int nhaCungCapId,PhuTung pt);
-    PhuTung suaPhuTung(int PhuTungId,PhuTung pt);
+    PhuTung themPhuTung(PhuTung phuTung);
+    PhuTung suaPhuTung(int PhuTungId,PhuTung phuTung);
     List<PhuTung> getListPhuTung();
-    List<PhuTung> getListPhuTungTheoNhaCUngCap(String name);
+    List<PhuTung> getListPhuTungByNCC(int ncc);
     void xoaPhuTung(int phuTungId);
 }
