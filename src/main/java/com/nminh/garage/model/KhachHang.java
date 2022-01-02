@@ -27,6 +27,16 @@ public class KhachHang {
     public KhachHang() {
     }
 
+    public KhachHang(int id, String soDienThoai, String diaChi, Instant ngaySinh, String ghiChu, String cccd, ThanhVien thanhVien) {
+        this.id = id;
+        this.soDienThoai = soDienThoai;
+        this.diaChi = diaChi;
+        this.ngaySinh = ngaySinh;
+        this.ghiChu = ghiChu;
+        this.cccd = cccd;
+        this.thanhVien = thanhVien;
+    }
+
     public int getId() {
         return id;
     }
