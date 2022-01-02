@@ -4,7 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -15,25 +17,28 @@ public class HoaDonNhap {
             strategy = GenerationType.IDENTITY
     )
     int id;
-    Instant thoiGianTao;
+    Date thoiGianTao;
     Float thanhTien;
     String ghiChu;
 
-    @OneToOne
-            @JoinColumn(name = "nha_cung_cap_id")
-    NhaCungCap nhaCungCap;
+
 
     @ManyToOne
-    @JoinColumn(name ="nhan_vien_id")
+    @JoinColumn(name ="tblNhanVienid")
     NhanVien nhanVien;
 
-    @ManyToMany
-    @JoinTable(name = "chi_tiet_hoa_don_nhap"
-    ,joinColumns = @JoinColumn(name = "hoa_don_nhap_id"),
-    inverseJoinColumns = @JoinColumn(name = "phu_tung_id"))
-    List<PhuTung> phuTungs;
+    @OneToMany(mappedBy = "hoaDonNhap",cascade = CascadeType.ALL)
+    private Set<ChiTietHoaDon> chiTietHoaDonSet;
+
 
     public HoaDonNhap() {
+    }
+
+    public HoaDonNhap(Date thoiGianTao, Float thanhTien, String ghiChu, NhanVien nhanVien) {
+        this.thoiGianTao = thoiGianTao;
+        this.thanhTien = thanhTien;
+        this.ghiChu = ghiChu;
+        this.nhanVien = nhanVien;
     }
 
     public int getId() {
@@ -44,11 +49,11 @@ public class HoaDonNhap {
         this.id = id;
     }
 
-    public Instant getThoiGianTao() {
+    public Date getThoiGianTao() {
         return thoiGianTao;
     }
 
-    public void setThoiGianTao(Instant thoiGianTao) {
+    public void setThoiGianTao(Date thoiGianTao) {
         this.thoiGianTao = thoiGianTao;
     }
 
@@ -68,13 +73,6 @@ public class HoaDonNhap {
         this.ghiChu = ghiChu;
     }
 
-    public NhaCungCap getNhaCungCap() {
-        return nhaCungCap;
-    }
-
-    public void setNhaCungCap(NhaCungCap nhaCungCap) {
-        this.nhaCungCap = nhaCungCap;
-    }
 
     public NhanVien getNhanVien() {
         return nhanVien;
@@ -84,11 +82,5 @@ public class HoaDonNhap {
         this.nhanVien = nhanVien;
     }
 
-    public List<PhuTung> getPhuTungs() {
-        return phuTungs;
-    }
 
-    public void setPhuTungs(List<PhuTung> phuTungs) {
-        this.phuTungs = phuTungs;
-    }
 }
