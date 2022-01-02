@@ -23,6 +23,8 @@ public class ChiTietHoaDon {
     @JoinColumn(name="tblHoaDonNhapid")
     private HoaDonNhap hoaDonNhap;
 
+    public ChiTietHoaDon() {
+    }
 
     public ChiTietHoaDon(int soLuong, PhuTung phuTung, HoaDonNhap hdn, float gia) {
         this.soLuong = soLuong;

@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface LichHenDao {
     LichHen taoLichHen(int nhanVienId, int khachHangId);
-    LichHen suaLichHen(int khachHangId,LichHen lh);
-    List<LichHen> getListHoaDonTheoKhachHang(String ten);
+    boolean suaLichHen(int khachHangId,LichHen lh);
+    boolean themLichHen(LichHen lichHen);
+    LichHen timLichHen(int idLichHen);
+    List<LichHen> getLichHen(String ten);
     List<LichHen> getListLichHen();
 }
