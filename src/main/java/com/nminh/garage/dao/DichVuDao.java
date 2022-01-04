@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface DichVuDao {
     List<DichVu> getListDichVu();
+    List<DichVu> getDichVu();
 }

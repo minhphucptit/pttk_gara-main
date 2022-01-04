@@ -8,6 +8,6 @@ public interface PhuTungDao {
     PhuTung themPhuTung(int nhaCungCapId,PhuTung pt);
     PhuTung suaPhuTung(int PhuTungId,PhuTung pt);
     List<PhuTung> getListPhuTung();
-    List<PhuTung> getListPhuTungTheoNhaCUngCap(String name);
+    List<PhuTung> getPhuTung();
     void xoaPhuTung(int phuTungId);
 }
